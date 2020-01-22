@@ -84,17 +84,12 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        $request->validate([
+        $data = $request->validate([
             'title' => ['required', Rule::unique('notes')->ignore($note)],
             'content' => 'required'
         ]);
 
-        $note->fill([
-            'title' => $request->input('title'),
-            'content' => $request->input('content')
-        ]);
-
-        $note->save();
+        $note->update($data);
 
         return redirect()->route('notes.index');
     }
