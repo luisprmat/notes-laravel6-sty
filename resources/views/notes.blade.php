@@ -16,12 +16,18 @@
                     </div>
 
                     <footer class="card-footer">
-                        <a href="{{ route('notes.edit', ['id' => $note->id]) }}" class="action-link action-edit">
+                        <a href="{{ route('notes.edit', $note) }}" class="action-link action-edit">
                             <i class="icon icon-pen"></i>
                         </a>
-                        <a class="action-link action-delete">
+                        <a href="#" class="action-link action-delete"
+                            onclick="event.preventDefault(); document.getElementById('delete-button-{{ $note->id }}').submit();"
+                        >
                             <i class="icon icon-trash"></i>
                         </a>
+                        <form id="delete-button-{{ $note->id }}" action="{{ route('notes.destroy', $note) }}" method="POST" style="display: none;">
+                           @method('DELETE')
+                           @csrf
+                        </form>
                     </footer>
                 </div>
             @empty

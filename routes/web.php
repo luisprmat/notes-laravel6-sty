@@ -11,13 +11,7 @@
 |
 */
 
-Route::get('/', 'NoteController@index')->name('notes');
+Route::resource('notes', 'NoteController');
 
-Route::get('notas/{id}', 'NoteController@show')->name('notes.show');
 
-Route::get('notas/crear', 'NoteController@create')->name('notes.create');
-
-Route::post('notas', 'NoteController@store')->name('notes.store');
-
-Route::get('notas/{id}/editar', 'NoteController@edit')->name('notes.edit');
 

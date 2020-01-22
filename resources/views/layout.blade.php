@@ -13,8 +13,8 @@
 
             <nav class="main-nav">
                 <ul class="main-nav-list">
-                    <li class="main-nav-item {{ url()->current() == route('notes') ? 'active' : '' }}">
-                        <a href="{{ route('notes') }}" class="main-nav-link">
+                    <li class="main-nav-item {{ url()->current() == route('notes.index') ? 'active' : '' }}">
+                        <a href="{{ route('notes.index') }}" class="main-nav-link">
                             <i class="icon icon-th-list"></i>
                             <span>Ver notas</span>
                         </a>
