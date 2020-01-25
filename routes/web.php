@@ -10,9 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'NoteController@index')->name('notes.index'); //
+Route::get('/', function () {
+    return redirect()->route('notes.index');
+})->name('home'); //
 
-Route::resource('notes', 'NoteController')->except(['index']);
+Route::resource('notes', 'NoteController');
 
 
 
