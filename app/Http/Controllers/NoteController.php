@@ -104,6 +104,9 @@ class NoteController extends Controller
     {
         $note->delete();
 
-        return redirect()->route('notes.index');
+        // return redirect()->route('notes.index');
+        return [
+            'success' => true
+        ];
     }
 }
